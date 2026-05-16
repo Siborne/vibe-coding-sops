@@ -43,7 +43,7 @@ AI 辅助编程速度极快，但速度不等于质量。没有规则约束的 v
 | 2 | [有意义注释规则](rules/meaningful-comments.md) | 七类值得写的注释：TODO / 参考资料 / 正确性说明 / 血泪教训 / 常数理由 / 承重细节 / 为什么不用 X |
 | 3 | [README 编写规则](rules/readme-structure.md) | 漏斗式组织，依次回答：做什么 → 为什么在乎 → 怎么用 → 怎么装 |
 | 4 | [提交信息规则](rules/commit-message.md) | 提交信息是 git 的历史记录，应回答：问题、方案对比、取舍、意外点 |
-| 5 | [代码评审规则](rules/code-review.md) | 评审七原则：对事不对人、可操作建议、提问、解释为什么、区分阻断、肯定优点、适可而止 |
+| 5 | [代码评审规则](rules/code-review.md) | 评审七原则 + 安全预检：OWASP Top 10 自查清单 + 禁止模式扫描 |
 | 6 | [代码风格声明规则](rules/code-style-declaration.md) | 开发前必须声明风格基准、决策偏好、禁止项；不允许没有风格声明就开始写代码 |
 | 7 | [状态诚实规则](rules/status-honesty.md) | AI 每次回复必须附状态块，四种状态（DONE/PENDING VERIFICATION/BLOCKED/PARTIAL），DONE 必须附带验证清单 |
 
