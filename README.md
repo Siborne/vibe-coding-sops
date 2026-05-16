@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT">
-  <img src="https://img.shields.io/badge/rules-6-4caf50.svg" alt="Rules: 6">
+  <img src="https://img.shields.io/badge/rules-7-4caf50.svg" alt="Rules: 7">
   <img src="https://img.shields.io/badge/status-active-success.svg" alt="Status: Active">
   <img src="https://img.shields.io/badge/vibe%20coding-essential-f39f37.svg" alt="Vibe Coding: Essential">
   <img src="https://img.shields.io/badge/lang-en--CN-lightgrey.svg" alt="Language: EN/CN">
@@ -38,6 +38,7 @@ This project follows the rules in vibe-coding-sops. See:
 - Commit Messages: rules/commit-message.md
 - Code Review: rules/code-review.md
 - Code Style Declaration: rules/code-style-declaration.md
+- Branch & PR Workflow: rules/branch-pr-workflow.md
 ```
 
 ## Rule Index
@@ -50,6 +51,7 @@ This project follows the rules in vibe-coding-sops. See:
 | 4 | [Commit Messages](rules/commit-message.md) | Commit body answers: what problem, alternatives considered, tradeoffs, surprises |
 | 5 | [Code Review](rules/code-review.md) | Seven principles: review code not people, actionable suggestions, ask don't command, explain why, label blocking vs suggestion, praise good work, know when to stop |
 | 6 | [Code Style Declaration](rules/code-style-declaration.md) | Before any code, declare style baseline, preference decisions, forbidden patterns |
+| 7 | [Branch & PR Workflow](rules/branch-pr-workflow.md) | Full lifecycle: branch naming (feat/fix/refactor/docs/chore/test), PR scope (semantic completeness), rebase-first sync, 3-layer pre-merge checklist, reviewer merge + cleanup |
 
 Each rule's rationale (WHY) is in [rationale/](rationale/) (English) and [rationale/zh/](rationale/zh/) (Chinese).
 
@@ -63,7 +65,8 @@ vibe-coding-sops/
 │   ├── readme-structure.md
 │   ├── commit-message.md
 │   ├── code-review.md
-│   └── code-style-declaration.md
+│   ├── code-style-declaration.md
+│   └── branch-pr-workflow.md
 ├── rationale/       # Rationale files — why the rule exists (English)
 │   ├── code-change-log.md
 │   ├── meaningful-comments.md
@@ -71,6 +74,7 @@ vibe-coding-sops/
 │   ├── commit-message.md
 │   ├── code-review.md
 │   ├── code-style-declaration.md
+│   ├── branch-pr-workflow.md
 │   └── zh/          # Rationale files (Chinese reference)
 │       ├── code-change-log.md
 │       ├── meaningful-comments.md
