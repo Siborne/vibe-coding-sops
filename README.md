@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT">
-  <img src="https://img.shields.io/badge/rules-8-4caf50.svg" alt="Rules: 8">
+  <img src="https://img.shields.io/badge/rules-9-4caf50.svg" alt="Rules: 9">
   <img src="https://img.shields.io/badge/status-active-success.svg" alt="Status: Active">
   <img src="https://img.shields.io/badge/vibe%20coding-essential-f39f37.svg" alt="Vibe Coding: Essential">
 </p>
@@ -34,6 +34,7 @@ AI 辅助编程速度极快，但速度不等于质量。没有规则约束的 v
 - 代码评审规则: rules/code-review.md
 - 状态诚实规则: rules/status-honesty.md
 - 不确定标记规则: rules/uncertainty-marking.md
+- 分支与 PR 工作流规则: rules/branch-pr-workflow.md
 ```
 
 ## 规则索引
@@ -48,6 +49,7 @@ AI 辅助编程速度极快，但速度不等于质量。没有规则约束的 v
 | 6 | [代码风格声明规则](rules/code-style-declaration.md) | 开发前必须声明风格基准、决策偏好、禁止项；不允许没有风格声明就开始写代码 |
 | 7 | [状态诚实规则](rules/status-honesty.md) | AI 每次回复必须附状态块，四种状态（DONE/PENDING VERIFICATION/BLOCKED/PARTIAL），DONE 必须附带验证清单 |
 | 8 | [不确定标记规则](rules/uncertainty-marking.md) | AI 不确定时必须显式标记：[NEEDS VERIFICATION] 标记 API/库不确定性，[ASSUMPTION] 标记业务假设，与状态诚实联动阻止 DONE |
+| 9 | [分支与 PR 工作流规则](rules/branch-pr-workflow.md) | 完整分支/PR 生命周期：命名规范（feat/fix/refactor等6类）、PR 范围定义（语义完整）、rebase 优先同步策略、三层检查清单（自动+自检+review）、reviewer merge + 清理 |
 
 每条规则对应的"为什么"详见 [rationale/](rationale/) 目录。
 
@@ -64,6 +66,7 @@ vibe-coding-sops/
 │   ├── code-style-declaration.md
 │   ├── status-honesty.md
 │   └── uncertainty-marking.md
+│   └── branch-pr-workflow.md
 ├── rationale/      # 原因解释（为什么需要这条规则）
 │   ├── code-change-log.md
 │   ├── meaningful-comments.md
@@ -73,6 +76,7 @@ vibe-coding-sops/
 │   ├── code-style-declaration.md
 │   ├── status-honesty.md
 │   └── uncertainty-marking.md
+│   └── branch-pr-workflow.md
 ├── docs/
 │   └── 变更记录/
 ├── CLAUDE.md
