@@ -69,7 +69,12 @@ vibe-coding-sops/
 ├── rules/               # Rule files (what to do, how to do it)
 │   └── ...              # 9 rules
 ├── rationale/           # Rationale files (why each rule exists)
-│   └── ...
+│   ├── rules/
+│   │   ├── en/          # English (9 rules)
+│   │   └── zh/          # Chinese (9 rules)
+│   └── skills/
+│       ├── en/          # English skill rationale
+│       └── zh/          # Chinese skill rationale
 ├── skills/              # Reusable AI skills
 │   └── ...
 ├── docs/
