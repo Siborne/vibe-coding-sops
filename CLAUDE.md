@@ -13,6 +13,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```
 rules/          # Rule files — what to do, how to do it, with examples
 rationale/      # Rationale files — why the rule exists, consequences of skipping it
+rationale/zh/   # Rationale files (Chinese, reference)
 README.md       # Rule index with badges and quick-start guide
 LICENSE         # MIT
 ```
@@ -22,11 +23,14 @@ LICENSE         # MIT
 | Rule | File | Core Requirement |
 |------|------|-----------------|
 | Code Change Log | `rules/code-change-log.md` | After every Edit/Write, create a change log in `docs/变更记录/` with root cause analysis and before/after code |
-| Meaningful Comments | `rules/meaningful-comments.md` | Comments explain WHY not WHAT; 7 types: TODO, references, correctness, lessons learned, constants, load-bearing details, "why not X" |
-| README Structure | `rules/readme-structure.md` | Funnel: what → why care → how to use → how to install; show usage before install steps |
-| Commit Messages | `rules/commit-message.md` | Commit body answers: what problem, alternatives considered, tradeoffs, surprises |
-| Code Review | `rules/code-review.md` | Review code not people; actionable suggestions; ask don't command; explain why; label blocking vs suggestion; praise good work; know when to stop |
-| Code Style Declaration | `rules/code-style-declaration.md` | Before writing any code, declare: style guide, preference decisions (if-else vs strategy, immutability), forbidden patterns |
+| Meaningful Comments | `rules/meaningful-comments.md` | Comments MUST explain WHY, not WHAT. Seven types: TODO, references, correctness justification, lessons learned, magic constant rationale, load-bearing details, "why not X" |
+| README Structure | `rules/readme-structure.md` | READMEs MUST follow funnel order: what → why care → how to use → how to install. Show usage before installation |
+| Commit Messages | `rules/commit-message.md` | Commit body MUST answer: what problem forced this change, alternatives considered, trade-offs, surprises |
+| Code Review | `rules/code-review.md` | Review code not people. Offer actionable suggestions. Ask, don't command. Distinguish blocking from suggestion. Know when to stop |
+| Code Style Declaration | `rules/code-style-declaration.md` | Before ANY code, MUST declare: style baseline, preference decisions (if-else vs strategy, immutability), forbidden patterns |
+| Status Honesty | `rules/status-honesty.md` | After every code change, report one of four statuses (DONE/PENDING VERIFICATION/BLOCKED/PARTIAL); DONE requires verification checklist |
+| Uncertainty Marking | `rules/uncertainty-marking.md` | Tag uncertain code with [NEEDS VERIFICATION] or [ASSUMPTION: ...]; integrates with Status Honesty via Uncertain field; DONE blocked while tags exist |
+| Branch & PR Workflow | `rules/branch-pr-workflow.md` | Full lifecycle: branch naming (feat/fix/refactor/docs/chore/test), PR scope (semantic completeness), rebase-first sync, 3-layer pre-merge checklist, reviewer merge + cleanup |
 
 ## Adding a New Rule
 
