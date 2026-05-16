@@ -1,40 +1,40 @@
-# 提交信息规则
+# Commit Message Rule
 
-提交信息（commit message）是代码库演进的历史记录，记录的是"为什么"而非"做了什么"。
+**Rule:** Commit messages MUST record WHY, not WHAT. Each commit body MUST answer four questions.
 
-## 提交正文应回答四个问题
+## The Four Questions
 
-1. **是什么问题迫使我们改动？** —— 问题现象、影响范围
-2. **考虑过哪些备选方案？** —— 为什么不走更简单的路
-3. **这个方案的取舍或影响是什么？** —— 代价、副作用、benchmark 数据
-4. **有哪些可能让人意外的点？** —— 非显而易见的决策或已知局限
+1. **What problem forced this change?** — Symptom, scope of impact
+2. **What alternatives were considered?** — Why not take a simpler path
+3. **What are the trade-offs or side effects?** — Cost, known limitations, benchmarks
+4. **What might surprise someone?** — Non-obvious decisions or known gaps
 
-## 示例
+## Example
 
-### 好的提交信息
+### Good
 
 ```
-payment: 修复 PayPal 回调验签在 webhook 重放时返回 403
+payment: fix PayPal callback signature rejection on webhook replay
 
-用户报告周末有 ~5% 的 PayPal 支付回调被拒绝。根因是 PayPal
-偶尔重放同一 webhook 事件（推测是他们的重试机制），而我们
-用 nonce 表做幂等校验时，第二次看到同一个 nonce 会返回 403。
+Users reported ~5% of PayPal payment callbacks were 403s over the weekend.
+Root cause: PayPal occasionally replays the same webhook event (likely their
+retry mechanism), and our nonce-based idempotency check returned 403 on the
+second occurrence.
 
-方案对比：
-- 方案 A：对重复 nonce 返回 200（幂等语义）。简单，但会把差异
-  埋进日志，运维排查困难。
-- 方案 B：记录重复事件并返回 200，同时给运维发通知。
+Alternatives considered:
+- Option A: Return 200 for duplicate nonces (idempotent semantics). Simple,
+  but buries the discrepancy in logs, making ops debugging hard.
+- Option B: Log duplicate events, return 200, and notify ops.
 
-选了 B，新增一个 deduplication_log 表记录重复事件。
+Chose B. Added a deduplication_log table to track repeats.
 
-已知局限：当前只支持 PayPal，Stripe webhook 签名验证路径
-（在 billing/stripe_webhook.py）尚未同步修改，计划下周跟进。
+Known limitation: currently only covers PayPal. Stripe webhook signature
+verification (in billing/stripe_webhook.py) hasn't been synced yet — planned
+for next week.
 ```
 
-### 不好的提交信息
+### Bad
 
 ```
 fix payment bug
 ```
-```
-
