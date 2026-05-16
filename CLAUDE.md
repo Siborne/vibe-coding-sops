@@ -28,6 +28,7 @@ LICENSE         # MIT
 | Code Review | `rules/code-review.md` | Security pre-check (OWASP Top 10 + banned patterns) before 7 review principles; review code not people; actionable suggestions; ask don't command; explain why; label blocking vs suggestion; praise good work; know when to stop |
 | Code Style Declaration | `rules/code-style-declaration.md` | Before writing any code, declare: style guide, preference decisions (if-else vs strategy, immutability), forbidden patterns |
 | Status Honesty | `rules/status-honesty.md` | After every code change, report one of four statuses (DONE/PENDING VERIFICATION/BLOCKED/PARTIAL); DONE requires verification checklist |
+| Uncertainty Marking | `rules/uncertainty-marking.md` | Tag uncertain code with [NEEDS VERIFICATION] or [ASSUMPTION: ...]; integrates with Status Honesty via Uncertain field; DONE blocked while tags exist |
 
 ## Adding a New Rule
 
