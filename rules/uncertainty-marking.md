@@ -21,7 +21,7 @@ AI 遇到不确定时，必须从以下三种方式中选一种：
 
 标记放在不确定代码的上一行，作为注释：
 
-```
+```js
 // [NEEDS VERIFICATION] 不确定此 API 是否存在 — 上线前查文档确认
 const user = await auth.fetchUserById(userId);
 
