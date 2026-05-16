@@ -65,7 +65,7 @@ vibe-coding-sops/
 │   ├── code-review.md
 │   ├── code-style-declaration.md
 │   ├── status-honesty.md
-│   └── uncertainty-marking.md
+│   ├── uncertainty-marking.md
 │   └── branch-pr-workflow.md
 ├── rationale/      # 原因解释（为什么需要这条规则）
 │   ├── code-change-log.md
@@ -75,7 +75,7 @@ vibe-coding-sops/
 │   ├── code-review.md
 │   ├── code-style-declaration.md
 │   ├── status-honesty.md
-│   └── uncertainty-marking.md
+│   ├── uncertainty-marking.md
 │   └── branch-pr-workflow.md
 ├── docs/
 │   └── 变更记录/
