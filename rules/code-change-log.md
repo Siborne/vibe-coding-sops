@@ -1,45 +1,46 @@
-# 代码变更记录规则
+# Code Change Log Rule
 
-每次修改代码后，必须在 `docs/变更记录/` 目录下创建一个变更记录文件。
+**Rule:** After every code change via Edit or Write, you MUST create a structured change log in `docs/变更记录/`.
 
-## 文件命名
+## File Naming
 
-`变更内容简述_日期.md`，例如：`PJAX导航浏览量loading修复_2026-05-11.md`
+`<brief-description>_<YYYY-MM-DD>.md`, e.g. `fix-pjax-loading-spinner_2026-05-11.md`
 
-## 文件内容（必须包含）
+## Required Sections
 
-### 基本信息
-- **时间**
-- **修改文件**：列出所有涉及的文件路径
+### Basic Info
+- **Timestamp**
+- **Files modified**: list all file paths touched
 
-### 根因分析
-- 问题现象是什么
-- 为什么会发生（技术层面的根因）
+### Root Cause Analysis
+- What was the symptom?
+- Why did it happen (technical root cause)?
 
-### 修改详情
-- 每个修改点标注文件路径 + 行号范围
-- 贴出修改前（BEFORE）和修改后（AFTER）的代码对比
-- 说明这段修改解决了什么问题
+### Change Details
+For each changed location:
+- File path + line range
+- **BEFORE** and **AFTER** code comparison
+- What this change fixes and why
 
-### 解决方案
-- 修复思路概述
+### Solution
+- Summary of the fix approach
 
-## 代码对比格式示例
+## Code Diff Format
 
-    ### 文件: layouts/partials/footer/custom.html (L10-L15)
+    ### File: layouts/partials/footer/custom.html (L10-L15)
 
     **BEFORE:**
     ```js
-    旧代码
+    // old code
     ```
 
     **AFTER:**
     ```js
-    新代码
+    // new code
     ```
 
-    > 说明：这里改了什么，为什么要这样改
+    > Why this change was made and what it accomplishes
 
-## 适用范围
+## Scope
 
-所有通过 Edit / Write 工具对项目代码的修改。
+All code modifications via Edit or Write tools.
