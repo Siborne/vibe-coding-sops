@@ -1,117 +1,51 @@
-# 代码评审规则
+# Code Review Rule
 
-代码评审不只是资深工程师的事——你的视角很有价值。新鲜的眼睛能抓到资深开发者忽视的东西，不熟悉代码的人提出的问题常能暴露那些应该被记录或简化的假设。
+**Rule:** Code review is for everyone — not just senior engineers. Review code, not people. Offer actionable suggestions. Ask, don't command.
 
-评审也是最快的学习方式之一：看到别人如何解题，学到模式和惯用法，培养对可读代码的直觉。此外，评审还能在代码入库前捕捉 bug、在团队内传播知识、通过协作提升代码质量。**在 vibe coding 中，AI 在开始代码评审前必须先完成安全预检。**
+## The Seven Principles
 
-## 评审原则
+### 1. Review the code, not the person
 
-### 安全预检
+- BAD: "Your code is hard to read"
+- GOOD: "This function took me a couple reads to follow"
 
-在进入七项评审原则前，AI 必须完成安全预检。预检覆盖 OWASP Top 10（2021），分两步：禁止模式扫描 + 逐项自查。
+### 2. Prefer actionable suggestions
 
-#### 禁止模式
+- BAD: "Don't use global variables"
+- GOOD: "Could this be a config dataclass instead of a global?"
 
-以下 8 种代码模式 AI 绝对禁止生成。每次评审时先扫描是否存在这些模式，发现即视为阻断项。
+### 3. Ask rather than command
 
-| # | 模式 | 对应 OWASP | 禁止写法 | 正确做法 |
-|---|------|-----------|---------|---------|
-| 1 | SQL 字符串拼接 | A03 注入 | `f"SELECT * FROM users WHERE id = {uid}"`；`"SELECT " + uid` | 参数化查询（PreparedStatement / `?` placeholder） |
-| 2 | 硬编码凭据 | A02 加密失败 | `password = "admin123"`；`API_KEY = "sk-..."` | 环境变量或密钥管理服务 |
-| 3 | 不安全的 DOM 写入 | A03 注入 | `element.innerHTML = userInput`；`dangerouslySetInnerHTML` | `textContent` 或 DOMPurify 清洗 |
-| 4 | 动态执行用户输入 | A03 注入 | `eval(userInput)`；`exec(code)`（Python） | 结构化解析器，避免动态执行 |
-| 5 | Shell 命令拼接 | A03 注入 | `os.system(f"ping {host}")`；`subprocess.call("ls " + path)` | `subprocess.run([...], shell=False)`（Python）；避免字符串拼接参数 |
-| 6 | 禁用 TLS 验证 | A02 加密失败 | `verify=False`（Python）；`rejectUnauthorized: false`（Node） | 默认保持 TLS 验证开启；生产代码中绝不关闭 |
-| 7 | 缺失授权检查 | A01 访问控制 | 路由/Endpoint 未挂载认证中间件 | 每个受保护端点必须声明授权要求 |
-| 8 | 明文 HTTP 传输敏感数据 | A02 加密失败 | API 端点使用 `http://` | 所有数据传输一律使用 HTTPS |
+Questions spark discussion; commands shut it down.
 
-#### OWASP Top 10 自查清单
+- BAD: "Handle the null case"
+- GOOD: "What happens if X is null here?"
 
-AI 必须逐项回答并输出自查结果。除 A07、A09 之外的 8 项为 [blocking]（必须修复），A07 和 A09 为 [suggestion]（建议修复，因其涉及更广泛的系统级判断）。
+### 4. Explain WHY
 
-| OWASP Top 10 (2021) | 自查问题 | 严重程度 |
-|---|---|---|
-| A01: 访问控制失效 | 每个新端点/路由是否声明了授权要求？ | [blocking] |
-| A02: 加密失败 | 是否有硬编码密钥？敏感数据是否通过 HTTP 明文传输？ | [blocking] |
-| A03: 注入 | 是否有字符串拼接构成的 SQL/OS 命令/LDAP 查询？ | [blocking] |
-| A04: 不安全设计 | 是否有缺失的输入校验（null、范围、类型）？是否暴露了内部路径或错误栈？ | [blocking] |
-| A05: 安全配置错误 | 是否有关闭 TLS 验证、默认密码、debug 模式开启的代码？ | [blocking] |
-| A06: 已知漏洞组件 | 新增依赖是否运行了 `npm audit` / `pip audit`？ | [blocking] |
-| A07: 认证与身份管理失效 | 新增的认证/找回密码流程是否存在逻辑绕过？ | [suggestion] |
-| A08: 软件与数据完整性故障 | 反序列化是否信任外部输入？是否缺少签名校验？ | [blocking] |
-| A09: 安全日志与监控不足 | 安全事件（登录失败、权限被拒）是否埋了日志？ | [suggestion] |
-| A10: SSRF（服务端请求伪造） | 服务端是否根据用户提供的 URL 发起请求？是否有目标白名单？ | [blocking] |
+Every suggestion MUST include the reasoning behind it.
 
-#### 预检输出格式
+- BAD: "Use a constant here"
+- GOOD: "Use a constant here so the timeout can be tuned per environment"
 
-完成自查后，AI 必须按以下格式输出结果：
+### 5. Distinguish blocking from suggestions
 
-```markdown
-## 安全预检
+Label each comment so the author knows what MUST change vs. what's optional:
 
-### 禁止模式扫描
-- 扫描结果：未发现 / 发现禁止模式
-- （如发现）具体位置及修复：
+- `[blocking]` — MUST be addressed before merge
+- `[suggestion]` — worth considering, author's call
+- `[nit]` — trivial, feel free to ignore
 
-### OWASP Top 10 自查
-| 项目 | 状态 | 说明 |
-|------|------|------|
-| A01 访问控制 | ✅ / ❌ / ⚠️ N/A | ... |
-| A02 加密失败 | ... | ... |
-| ... | ... | ... |
+### 6. Praise good work
 
-### 预检结论
-- [ ] 全部通过 → 继续七原则评审
-- [ ] 有阻断项 → 已修复，修复内容见上方
-```
-
-**阻断项必须先修复，再进入七原则评审。** 建议项可在评审过程中讨论。
-
----
-
-### 1. 评审代码，不评审人
-
-- ❌ "你写的代码很难懂"
-- ✅ "这个函数读起来有点费解"
-
-### 2. 倾向于可操作的建议
-
-- ❌ "别用全局变量"
-- ✅ "这里能否改成用配置 dataclass，而不是全局变量？"
-
-### 3. 提问而非命令
-
-提问能促进讨论，而非直接下结论。
-
-- ❌ "把 null 情况处理掉"
-- ✅ "如果这里 X 为 null 会怎样？"
-
-### 4. 解释"为什么"
-
-每条建议都应该带上理由。
-
-- ❌ "这里用常量吧"
-- ✅ "这里用常量，方便根据环境调整超时时间"
-
-### 5. 区分阻断性问题和建议
-
-明确标注哪些必须修改才能合入，哪些只是个人偏好。可以用约定前缀：
-
-- `[blocking]` —— 必须改
-- `[suggestion]` —— 可以不改，但建议考虑
-- `[nit]` —— 无关紧要，随便提一嘴
-
-安全预检中发现的全部问题均自动标记为 `[blocking]`，除非自查清单中已标注为 `[suggestion]`（A07、A09）。
-
-### 6. 肯定做得好的地方
-
-指出巧妙的解决方式或干净的实现会让人受鼓舞，也能让作者知道哪些值得持续保持。
+Call out clever solutions and clean implementations. It tells the author what patterns to keep using.
 
 ```
-这个错误恢复逻辑处理得很干净，尤其是 retry 的退避策略。
-以后类似的外部调用都参考这里。
+The error recovery logic here is really clean, especially the retry
+backoff strategy. Let's use this as the reference pattern for similar
+external calls going forward.
 ```
 
-### 7. 知道何时收手
+### 7. Know when to stop
 
-贡献者的时间和精力有限，不必花在所有细枝末节上。把注意力放在大问题（正确性、安全、性能、可维护性）上，小问题可以事后自己顺手清理。
+Contributor time and energy are finite. Focus on the big things (correctness, security, performance, maintainability). Small issues can be cleaned up later.
