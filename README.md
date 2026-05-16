@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT">
-  <img src="https://img.shields.io/badge/rules-5-4caf50.svg" alt="Rules: 5">
+  <img src="https://img.shields.io/badge/rules-6-4caf50.svg" alt="Rules: 6">
   <img src="https://img.shields.io/badge/status-active-success.svg" alt="Status: Active">
   <img src="https://img.shields.io/badge/vibe%20coding-essential-f39f37.svg" alt="Vibe Coding: Essential">
 </p>
@@ -43,6 +43,7 @@ AI 辅助编程速度极快，但速度不等于质量。没有规则约束的 v
 | 3 | [README 编写规则](rules/readme-structure.md) | 漏斗式组织，依次回答：做什么 → 为什么在乎 → 怎么用 → 怎么装 |
 | 4 | [提交信息规则](rules/commit-message.md) | 提交信息是 git 的历史记录，应回答：问题、方案对比、取舍、意外点 |
 | 5 | [代码评审规则](rules/code-review.md) | 评审七原则：对事不对人、可操作建议、提问、解释为什么、区分阻断、肯定优点、适可而止 |
+| 6 | [代码风格声明规则](rules/code-style-declaration.md) | 开发前必须声明风格基准、决策偏好、禁止项；不允许没有风格声明就开始写代码 |
 
 每条规则对应的"为什么"详见 [rationale/](rationale/) 目录。
 
@@ -55,13 +56,17 @@ vibe-coding-sops/
 │   ├── meaningful-comments.md
 │   ├── readme-structure.md
 │   ├── commit-message.md
-│   └── code-review.md
+│   ├── code-review.md
+│   └── code-style-declaration.md
 ├── rationale/      # 原因解释（为什么需要这条规则）
 │   ├── code-change-log.md
 │   ├── meaningful-comments.md
 │   ├── readme-structure.md
 │   ├── commit-message.md
-│   └── code-review.md
+│   ├── code-review.md
+│   └── code-style-declaration.md
+├── docs/
+│   └── 变更记录/
 ├── CLAUDE.md
 ├── LICENSE
 └── README.md

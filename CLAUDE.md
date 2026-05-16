@@ -26,6 +26,7 @@ LICENSE         # MIT
 | README Structure | `rules/readme-structure.md` | Funnel: what → why care → how to use → how to install; show usage before install steps |
 | Commit Messages | `rules/commit-message.md` | Commit body answers: what problem, alternatives considered, tradeoffs, surprises |
 | Code Review | `rules/code-review.md` | Review code not people; actionable suggestions; ask don't command; explain why; label blocking vs suggestion; praise good work; know when to stop |
+| Code Style Declaration | `rules/code-style-declaration.md` | Before writing any code, declare: style guide, preference decisions (if-else vs strategy, immutability), forbidden patterns |
 
 ## Adding a New Rule
 
