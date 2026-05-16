@@ -27,6 +27,7 @@ LICENSE         # MIT
 | Commit Messages | `rules/commit-message.md` | Commit body answers: what problem, alternatives considered, tradeoffs, surprises |
 | Code Review | `rules/code-review.md` | Review code not people; actionable suggestions; ask don't command; explain why; label blocking vs suggestion; praise good work; know when to stop |
 | Code Style Declaration | `rules/code-style-declaration.md` | Before writing any code, declare: style guide, preference decisions (if-else vs strategy, immutability), forbidden patterns |
+| Status Honesty | `rules/status-honesty.md` | After every code change, report one of four statuses (DONE/PENDING VERIFICATION/BLOCKED/PARTIAL); DONE requires verification checklist |
 
 ## Adding a New Rule
 
