@@ -33,3 +33,18 @@ LICENSE         # MIT
 2. Create `rationale/<slug>.md` — motivation, context, consequences
 3. Add to README.md index table
 4. Add to the Rules to Load table in this CLAUDE.md
+
+## Self-Application: This Repo's Own Change Log
+
+This repo's rules apply to Claude Code when editing THIS repo. Specifically:
+
+**Every time you modify files in this repo, create a change log in `docs/变更记录/`.**
+
+Naming: `<brief-description>_<YYYY-MM-DD>.md`
+
+The change log must include:
+- **What** was changed (files, sections)
+- **Why** the change was made (user request, rule clarification, fix)
+- **Before/After** if the change is a rewrite or structural change
+
+This ensures the evolution of the rules themselves is traceable — the meta-rule applies to its own home.
