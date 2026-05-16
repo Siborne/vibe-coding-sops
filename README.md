@@ -2,81 +2,82 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT">
-  <img src="https://img.shields.io/badge/rules-9-4caf50.svg" alt="Rules: 9">
+  <img src="https://img.shields.io/badge/rules-6-4caf50.svg" alt="Rules: 6">
   <img src="https://img.shields.io/badge/status-active-success.svg" alt="Status: Active">
   <img src="https://img.shields.io/badge/vibe%20coding-essential-f39f37.svg" alt="Vibe Coding: Essential">
+  <img src="https://img.shields.io/badge/lang-en--CN-lightgrey.svg" alt="Language: EN/CN">
 </p>
 
-> Vibe Coding 时载入的规则集合。每条规则说清楚"做什么"，每条规则的原因解释回答"为什么"。
+> A collection of rules for AI-assisted coding (vibe coding). Each rule defines what to do and how. Each rationale explains why.
+>
+> AI 辅助编程（vibe coding）规则集合。规则以英文为主（AI 执行），理由中英双语（人阅读）。
 
-## 为什么你需要这个
+## Why You Need This
 
-AI 辅助编程速度极快，但速度不等于质量。没有规则约束的 vibe coding 会导致：
+AI-assisted coding is fast, but speed isn't quality. Without rule constraints, vibe coding leads to:
 
-- 代码改完了，不知道改了什么（没有变更记录）
-- 三个月后的 `git blame` 返回 "fix bug"，毫无信息量
-- AI 生成的代码表面通顺，但存在隐性边界问题
-- 团队代码风格三天后变成三种
+- Code changed — but nobody knows what changed (no change log)
+- `git blame` returns "fix bug" three months later — zero information
+- AI-generated code looks correct but hides edge-case problems
+- Three coding styles appear in the same project within three days
 
-这个仓库把 vibe coding 中必须遵守的**规则**和**理由**写下来，放进 Claude Code 的项目记忆中，确保每次 AI 辅助编码都在同一套约束下运行。
+This repo writes down the **rules** and **rationale** that vibe coding MUST follow, loaded into Claude Code's project memory to ensure every AI-assisted coding session runs under the same constraints.
 
-## 快速开始
+> 中文用户请查看 [rationale/zh/](rationale/zh/) 目录获取中文版理由说明。
 
-把本仓库克隆到本地，在 Claude Code 项目中引用规则文件：
+## Quick Start
+
+Clone this repo and reference the rules in your project's CLAUDE.md:
 
 ```
-# 在你的项目 CLAUDE.md 中引用
-本项目遵循 vibe-coding-sops 中的规则，详见：
-- 代码变更记录规则: rules/code-change-log.md
-- 有意义注释规则: rules/meaningful-comments.md
-- README 编写规则: rules/readme-structure.md
-- 提交信息规则: rules/commit-message.md
-- 代码评审规则: rules/code-review.md
-- 状态诚实规则: rules/status-honesty.md
-- 不确定标记规则: rules/uncertainty-marking.md
-- 分支与 PR 工作流规则: rules/branch-pr-workflow.md
+# In your project's CLAUDE.md:
+This project follows the rules in vibe-coding-sops. See:
+- Code Change Log: rules/code-change-log.md
+- Meaningful Comments: rules/meaningful-comments.md
+- README Structure: rules/readme-structure.md
+- Commit Messages: rules/commit-message.md
+- Code Review: rules/code-review.md
+- Code Style Declaration: rules/code-style-declaration.md
 ```
 
-## 规则索引
+## Rule Index
 
-| # | 规则 | 说明 |
-|---|------|------|
-| 1 | [代码变更记录规则](rules/code-change-log.md) | 每次修改必须创建结构化变更记录，含根因分析 + 修改前后对比 |
-| 2 | [有意义注释规则](rules/meaningful-comments.md) | 七类值得写的注释：TODO / 参考资料 / 正确性说明 / 血泪教训 / 常数理由 / 承重细节 / 为什么不用 X |
-| 3 | [README 编写规则](rules/readme-structure.md) | 漏斗式组织，依次回答：做什么 → 为什么在乎 → 怎么用 → 怎么装 |
-| 4 | [提交信息规则](rules/commit-message.md) | 提交信息是 git 的历史记录，应回答：问题、方案对比、取舍、意外点 |
-| 5 | [代码评审规则](rules/code-review.md) | 评审七原则 + 安全预检：OWASP Top 10 自查清单 + 禁止模式扫描 |
-| 6 | [代码风格声明规则](rules/code-style-declaration.md) | 开发前必须声明风格基准、决策偏好、禁止项；不允许没有风格声明就开始写代码 |
-| 7 | [状态诚实规则](rules/status-honesty.md) | AI 每次回复必须附状态块，四种状态（DONE/PENDING VERIFICATION/BLOCKED/PARTIAL），DONE 必须附带验证清单 |
-| 8 | [不确定标记规则](rules/uncertainty-marking.md) | AI 不确定时必须显式标记：[NEEDS VERIFICATION] 标记 API/库不确定性，[ASSUMPTION] 标记业务假设，与状态诚实联动阻止 DONE |
-| 9 | [分支与 PR 工作流规则](rules/branch-pr-workflow.md) | 完整分支/PR 生命周期：命名规范（feat/fix/refactor等6类）、PR 范围定义（语义完整）、rebase 优先同步策略、三层检查清单（自动+自检+review）、reviewer merge + 清理 |
+| # | Rule | Description |
+|---|------|-------------|
+| 1 | [Code Change Log](rules/code-change-log.md) | After every code change, create a structured change log with root cause analysis + before/after code |
+| 2 | [Meaningful Comments](rules/meaningful-comments.md) | Comments explain WHY, not WHAT. Seven types: TODO, references, correctness, lessons learned, magic constants, load-bearing details, "why not X" |
+| 3 | [README Structure](rules/readme-structure.md) | Funnel organization: what → why care → how to use → how to install. Usage before installation |
+| 4 | [Commit Messages](rules/commit-message.md) | Commit body answers: what problem, alternatives considered, tradeoffs, surprises |
+| 5 | [Code Review](rules/code-review.md) | Seven principles: review code not people, actionable suggestions, ask don't command, explain why, label blocking vs suggestion, praise good work, know when to stop |
+| 6 | [Code Style Declaration](rules/code-style-declaration.md) | Before any code, declare style baseline, preference decisions, forbidden patterns |
 
-每条规则对应的"为什么"详见 [rationale/](rationale/) 目录。
+Each rule's rationale (WHY) is in [rationale/](rationale/) (English) and [rationale/zh/](rationale/zh/) (Chinese).
 
-## 仓库结构
+## Repository Structure
 
 ```
 vibe-coding-sops/
-├── rules/          # 规则文件（做什么、怎么做）
+├── rules/           # Rule files — what to do, how to do it (English)
+│   ├── code-change-log.md
+│   ├── meaningful-comments.md
+│   ├── readme-structure.md
+│   ├── commit-message.md
+│   ├── code-review.md
+│   └── code-style-declaration.md
+├── rationale/       # Rationale files — why the rule exists (English)
 │   ├── code-change-log.md
 │   ├── meaningful-comments.md
 │   ├── readme-structure.md
 │   ├── commit-message.md
 │   ├── code-review.md
 │   ├── code-style-declaration.md
-│   ├── status-honesty.md
-│   ├── uncertainty-marking.md
-│   └── branch-pr-workflow.md
-├── rationale/      # 原因解释（为什么需要这条规则）
-│   ├── code-change-log.md
-│   ├── meaningful-comments.md
-│   ├── readme-structure.md
-│   ├── commit-message.md
-│   ├── code-review.md
-│   ├── code-style-declaration.md
-│   ├── status-honesty.md
-│   ├── uncertainty-marking.md
-│   └── branch-pr-workflow.md
+│   └── zh/          # Rationale files (Chinese reference)
+│       ├── code-change-log.md
+│       ├── meaningful-comments.md
+│       ├── readme-structure.md
+│       ├── commit-message.md
+│       ├── code-review.md
+│       └── code-style-declaration.md
 ├── docs/
 │   └── 变更记录/
 ├── CLAUDE.md
@@ -84,6 +85,6 @@ vibe-coding-sops/
 └── README.md
 ```
 
-## 许可
+## License
 
 MIT © 2026 Siborne
