@@ -1,6 +1,10 @@
 # vibe-coding-sops
 
 <p align="center">
+  <img src="assets/readmeBannerImage.png" alt="vibe-coding-sops banner" width="800">
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT">
   <img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/Siborne/vibe-coding-sops/main/stats.json&query=%24.rules&label=rules&color=4caf50" alt="Rules">
   <img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/Siborne/vibe-coding-sops/main/stats.json&query=%24.rationale&label=rationale&color=2196f3" alt="Rationale">
@@ -61,6 +65,7 @@ See [rationale/](rationale/) for the "why" behind each rule.
 | Skill | Description |
 |-------|-------------|
 | [Prompt Composer](skills/prompt-composer.md) | Turn vague requirements into multi-step dialogue scripts — Ask window designs prompts, Agent window executes |
+| [Resume Builder](skills/resume-builder.md) | Conversational interview + project code scan to generate role-tailored STAR resume sections |
 
 ## Repository Structure
 

@@ -1,6 +1,10 @@
 # vibe-coding-sops
 
 <p align="center">
+  <img src="assets/readmeBannerImage.png" alt="vibe-coding-sops banner" width="800">
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT">
   <img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/Siborne/vibe-coding-sops/main/stats.json&query=%24.rules&label=rules&color=4caf50" alt="Rules">
   <img src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/Siborne/vibe-coding-sops/main/stats.json&query=%24.rationale&label=rationale&color=2196f3" alt="Rationale">
@@ -61,6 +65,7 @@ AI 辅助编程速度极快，但速度不等于质量。没有规则约束的 v
 | Skill | 说明 |
 |-------|------|
 | [Prompt Composer](skills/prompt-composer.md) | 把模糊需求转为多步对话脚本，Ask 窗口设计 prompt，Agent 窗口执行 |
+| [Resume Builder](skills/resume-builder.md) | 对话式访谈 + 项目代码扫描，生成角色定制的 STAR 简历段落 |
 
 ## 仓库结构
 
