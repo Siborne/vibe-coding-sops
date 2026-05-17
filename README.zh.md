@@ -66,6 +66,7 @@ AI 辅助编程速度极快，但速度不等于质量。没有规则约束的 v
 |-------|------|
 | [Prompt Composer](skills/prompt-composer.md) | 把模糊需求转为多步对话脚本，Ask 窗口设计 prompt，Agent 窗口执行 |
 | [Resume Builder](skills/resume-builder.md) | 对话式访谈 + 项目代码扫描，生成角色定制的 STAR 简历段落 |
+| [Agent Prompt Engineering](skills/agent-prompt-engineering.md) | 5 种生产级 Agent prompt 编写技巧 — 思维链、结构化模版、正反例、分而治之、数据结构转换 |
 
 ## 仓库结构
 
