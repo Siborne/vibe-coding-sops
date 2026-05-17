@@ -66,6 +66,7 @@ See [rationale/](rationale/) for the "why" behind each rule.
 |-------|-------------|
 | [Prompt Composer](skills/prompt-composer.md) | Turn vague requirements into multi-step dialogue scripts — Ask window designs prompts, Agent window executes |
 | [Resume Builder](skills/resume-builder.md) | Conversational interview + project code scan to generate role-tailored STAR resume sections |
+| [Agent Prompt Engineering](skills/agent-prompt-engineering.md) | 5 engineering techniques for writing production Agent prompts — CoT, structured templates, examples, divide & conquer, data structure conversion |
 
 ## Repository Structure
 
