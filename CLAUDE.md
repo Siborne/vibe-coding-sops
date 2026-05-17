@@ -11,11 +11,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Repository Structure
 
 ```
-rules/          # Rule files — what to do, how to do it, with examples
-rationale/      # Rationale files — why the rule exists, consequences of skipping it
-rationale/zh/   # Rationale files (Chinese, reference)
-README.md       # Rule index with badges and quick-start guide
-LICENSE         # MIT
+rules/              # Rule files — what to do, how to do it, with examples
+rationale/rules/    # Rule rationale — why the rule exists, consequences of skipping it
+rationale/skills/   # Skill rationale — same structure as rules
+skills/             # Reusable AI skills for specific workflows
+README.md           # Rule & skill index with badges and quick-start guide
+LICENSE             # MIT
 ```
 
 ## Rules to Load
@@ -32,12 +33,28 @@ LICENSE         # MIT
 | Uncertainty Marking | `rules/uncertainty-marking.md` | Tag uncertain code with [NEEDS VERIFICATION] or [ASSUMPTION: ...]; integrates with Status Honesty via Uncertain field; DONE blocked while tags exist |
 | Branch & PR Workflow | `rules/branch-pr-workflow.md` | Full lifecycle: branch naming (feat/fix/refactor/docs/chore/test), PR scope (semantic completeness), rebase-first sync, 3-layer pre-merge checklist, reviewer merge + cleanup |
 
+## Skills to Load
+
+| Skill | File | Core Capability |
+|-------|------|----------------|
+| Prompt Composer | `skills/prompt-composer.md` | Turn vague requirements into multi-step dialogue scripts — Ask window clarifies, Agent window executes |
+| Resume Builder | `skills/resume-builder.md` | Conversational interview + project code scan to generate role-tailored STAR resume sections |
+| Agent Prompt Engineering | `skills/agent-prompt-engineering.md` | 5 techniques for writing production Agent prompts: CoT, structured templates, positive/negative examples, divide & conquer, data structure conversion |
+
 ## Adding a New Rule
 
 1. Create `rules/<slug>.md` — rule description + examples (no rationale in the rule file)
 2. Create `rationale/<slug>.md` — motivation, context, consequences
 3. Add to README.md index table
 4. Add to the Rules to Load table in this CLAUDE.md
+
+## Adding a New Skill
+
+1. Create `skills/<slug>.md` — skill definition with techniques, examples, and selection guide
+2. Create `rationale/skills/zh/<slug>.md` — Chinese rationale: trigger scenario, core problem, consequences
+3. Create `rationale/skills/en/<slug>.md` — English rationale, same structure
+4. Add to README.md Skills table
+5. Add to the Skills to Load table in this CLAUDE.md
 
 ## Self-Application: This Repo's Own Change Log
 
