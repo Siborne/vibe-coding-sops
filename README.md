@@ -33,56 +33,100 @@ Clone this repo and reference the rules in your project's CLAUDE.md:
 ```
 # In your project's CLAUDE.md:
 This project follows vibe-coding-sops rules, see:
-- Code Change Log: rules/code-change-log.md
-- Meaningful Comments: rules/meaningful-comments.md
-- README Structure: rules/readme-structure.md
-- Commit Messages: rules/commit-message.md
-- Code Review: rules/code-review.md
-- Code Style Declaration: rules/code-style-declaration.md
-- Branch & PR Workflow: rules/branch-pr-workflow.md
-- Status Honesty: rules/status-honesty.md
-- Uncertainty Marking: rules/uncertainty-marking.md
+- Meaningful Comments: rules/code-quality/meaningful-comments.md
+- Uncertainty Marking: rules/code-quality/uncertainty-marking.md
+- Code Style Declaration: rules/code-quality/code-style-declaration.md
+- Commit Messages: rules/workflow/commit-message.md
+- Code Review: rules/workflow/code-review.md
+- Branch & PR Workflow: rules/workflow/branch-pr-workflow.md
+- Code Change Log: rules/documentation/code-change-log.md
+- README Structure: rules/documentation/readme-structure.md
+- Status Honesty: rules/communication/status-honesty.md
 ```
 
 ## Rule Index
 
-| # | Rule | Description |
-|---|------|-------------|
-| 1 | [Code Change Log](rules/code-change-log.md) | Every change creates a structured log with root cause analysis + before/after |
-| 2 | [Meaningful Comments](rules/meaningful-comments.md) | Seven comment types worth writing: TODO, references, correctness, lessons learned, constants, load-bearing details, why-not-X |
-| 3 | [README Structure](rules/readme-structure.md) | Funnel order: what → why care → how to use → how to install |
-| 4 | [Commit Messages](rules/commit-message.md) | Commits answer: what problem, alternatives considered, tradeoffs, surprises |
-| 5 | [Code Review](rules/code-review.md) | Seven review principles: review code not people, actionable suggestions, ask don't command, explain why, label blocking vs suggestion, praise good work, know when to stop |
-| 6 | [Code Style Declaration](rules/code-style-declaration.md) | Declare style guide, preferences, and forbidden patterns before writing any code |
-| 7 | [Branch & PR Workflow](rules/branch-pr-workflow.md) | Branch naming, PR scope, rebase sync, pre-merge checklist, reviewer merge + cleanup |
-| 8 | [Status Honesty](rules/status-honesty.md) | Every AI reply must include a status block: DONE / PENDING VERIFICATION / BLOCKED / PARTIAL; DONE requires verification checklist |
-| 9 | [Uncertainty Marking](rules/uncertainty-marking.md) | Mark uncertain code with [NEEDS VERIFICATION] or [ASSUMPTION]; blocks DONE status |
+Rules are organized into four categories.
+
+### Code Quality [code-quality]
+Rules that shape how code is written and protected against hidden uncertainty.
+
+| Rule | Description |
+|------|-------------|
+| [Meaningful Comments](rules/code-quality/meaningful-comments.md) | Seven comment types worth writing: TODO, references, correctness, lessons learned, constants, load-bearing details, why-not-X |
+| [Uncertainty Marking](rules/code-quality/uncertainty-marking.md) | Mark uncertain code with [NEEDS VERIFICATION] or [ASSUMPTION]; blocks DONE status |
+| [Code Style Declaration](rules/code-quality/code-style-declaration.md) | Declare style guide, preferences, and forbidden patterns before writing any code |
+
+### Workflow [workflow]
+Rules about how changes flow through commits, review, and branches.
+
+| Rule | Description |
+|------|-------------|
+| [Commit Messages](rules/workflow/commit-message.md) | Commits answer: what problem, alternatives considered, tradeoffs, surprises |
+| [Code Review](rules/workflow/code-review.md) | Seven review principles: review code not people, actionable suggestions, ask don't command, explain why, label blocking vs suggestion, praise good work, know when to stop |
+| [Branch & PR Workflow](rules/workflow/branch-pr-workflow.md) | Branch naming, PR scope, rebase sync, pre-merge checklist, reviewer merge + cleanup |
+
+### Documentation [documentation]
+Rules about the artifacts shipping alongside code.
+
+| Rule | Description |
+|------|-------------|
+| [Code Change Log](rules/documentation/code-change-log.md) | Every change creates a structured log with root cause analysis + before/after |
+| [README Structure](rules/documentation/readme-structure.md) | Funnel order: what → why care → how to use → how to install |
+
+### Communication [communication]
+Rules about how the AI reports status truthfully.
+
+| Rule | Description |
+|------|-------------|
+| [Status Honesty](rules/communication/status-honesty.md) | Every AI reply must include a status block: DONE / PENDING VERIFICATION / BLOCKED / PARTIAL; DONE requires verification checklist |
 
 See [rationale/](rationale/) for the "why" behind each rule.
 
 ## Skills
 
+Skills are organized into three categories.
+
+### Engineering
+Fixed-process skills that execute a defined workflow step by step.
+
 | Skill | Description |
 |-------|-------------|
-| [Prompt Composer](skills/prompt-composer.md) | Turn vague requirements into multi-step dialogue scripts — Ask window designs prompts, Agent window executes |
-| [Resume Builder](skills/resume-builder.md) | Conversational interview + project code scan to generate role-tailored STAR resume sections |
-| [Agent Prompt Engineering](skills/agent-prompt-engineering.md) | 5 engineering techniques for writing production Agent prompts — CoT, structured templates, examples, divide & conquer, data structure conversion |
+| [GitHub PR Workflow](skills/engineering/git-collaboration/github-pr-workflow/SKILL.md) | Enterprise Fork + Feature Branch + PR collaboration workflow — never commit to `main` directly |
+
+### Conversational
+Dialogue-driven skills that clarify information through conversation before producing output.
+
+| Skill | Description |
+|-------|-------------|
+| [Prompt Composer](skills/conversational/requirement/prompt-composer/SKILL.md) | Turn vague requirements into multi-step dialogue scripts — Ask window designs prompts, Agent window executes |
+| [Resume Builder](skills/conversational/interview/resume-builder/SKILL.md) | Conversational interview + project code scan to generate role-tailored STAR resume sections |
+
+### Atomic
+Single-purpose, independently callable technique units.
+
+| Skill | Description |
+|-------|-------------|
+| [Agent Prompt Engineering](skills/atomic/agent-prompt-engineering/SKILL.md) | 5 engineering techniques for writing production Agent prompts — CoT, structured templates, examples, divide & conquer, data structure conversion |
+
+See [skills/](skills/) for the full category tree and planned subcategories (engineering: git-collaboration · code-quality · testing · delivery; conversational: requirement · interview · brainstorm).
 
 ## Repository Structure
 
 ```
 vibe-coding-sops/
-├── rules/               # Rule files (what to do, how to do it)
-│   └── ...              # 9 rules
+├── rules/               # Rule files (what to do, how to do it), grouped into 4 categories
+│   ├── code-quality/    #   meaningful-comments, uncertainty-marking, code-style-declaration
+│   ├── workflow/        #   commit-message, code-review, branch-pr-workflow
+│   ├── documentation/   #   code-change-log, readme-structure
+│   └── communication/   #   status-honesty
 ├── rationale/           # Rationale files (why each rule exists)
-│   ├── rules/
-│   │   ├── en/          # English (9 rules)
-│   │   └── zh/          # Chinese (9 rules)
-│   └── skills/
-│       ├── en/          # English skill rationale
-│       └── zh/          # Chinese skill rationale
-├── skills/              # Reusable AI skills
-│   └── ...
+│   ├── rules/           #   mirrors rules/: <category>/<en|zh>/<name>.md
+│   └── skills/          #   mirrors skills/: <category>/<subcategory>/<name>/<en|zh>.md
+├── skills/              # Reusable AI skills, grouped into 3 categories
+│   ├── engineering/     #   fixed-process skills (git-collaboration, code-quality, testing, delivery)
+│   ├── conversational/  #   dialogue-driven skills (requirement, interview, brainstorm)
+│   └── atomic/          #   single-purpose technique units
 ├── docs/
 │   ├── superpowers/
 │   │   ├── plans/       # Implementation plans
