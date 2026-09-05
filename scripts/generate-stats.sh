@@ -5,8 +5,8 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-RULES=$(find rules/ -maxdepth 1 -name '*.md' 2>/dev/null | wc -l)
-SKILLS=$(find skills/ -maxdepth 1 -name '*.md' 2>/dev/null | wc -l)
+RULES=$(find rules/ -name '*.md' 2>/dev/null | wc -l)
+SKILLS=$(find skills/ -name 'SKILL.md' 2>/dev/null | wc -l)
 RATIONALE=$(find rationale/ -name '*.md' 2>/dev/null | wc -l)
 CHANGELOGS=$(find docs/变更记录/ -maxdepth 1 -name '*.md' 2>/dev/null | wc -l)
 PLANS=$(find docs/superpowers/plans/ -maxdepth 1 -name '*.md' 2>/dev/null | wc -l)
