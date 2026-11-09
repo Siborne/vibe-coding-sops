@@ -112,7 +112,8 @@ AI 辅助编程速度极快，但速度不等于质量。没有规则约束的 v
 
 完整的分类树与规划中的子类见 [skills/](skills/)（工程类：git-collaboration · code-quality · testing · delivery；对话类：requirement · interview · brainstorm）。
 
-`AGENTS.md` 案例与原文摘录见 [docs/agents-md/](docs/agents-md/README.md)。
+`AGENTS.md` 案例、原文摘录与可直接使用的模板见 [docs/agents-md/](docs/agents-md/README.md)。
+直接取用：[编程版](docs/agents-md/programming/AGENTS.md) · [办公版](docs/agents-md/office/AGENTS.md)。
 
 ## 仓库结构
 
@@ -134,7 +135,7 @@ vibe-coding-sops/
 │   ├── superpowers/
 │   │   ├── plans/       # 实现计划
 │   │   └── specs/       # 设计规格
-│   ├── agents-md/       # AGENTS.md 案例集
+│   ├── agents-md/       # AGENTS.md 案例集与可直接使用的模板
 │   └── 变更记录/         # 代码变更记录
 ├── scripts/             # 辅助脚本
 │   └── generate-stats.sh

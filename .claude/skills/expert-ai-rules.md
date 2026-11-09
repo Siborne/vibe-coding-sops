@@ -235,6 +235,8 @@ bun run lint:claude && bun run test
 
 Peter Steinberger 的 OpenClaw 项目版和个人版 `AGENTS.md` 的分段结构与原文摘录，见 [`docs/agents-md/README.md`](../../docs/agents-md/README.md)。
 
+可直接复制的成品：[编程版 AGENTS.md](../../docs/agents-md/programming/AGENTS.md) / [办公版 AGENTS.md](../../docs/agents-md/office/AGENTS.md)。
+
 ## 通用办公模板
 
 把【】换成你自己的情况，用不上的板块直接删掉，再粘贴到和 AI 对话的开头，或放进 AI 的"自定义指令"里。

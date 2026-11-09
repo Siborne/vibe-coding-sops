@@ -112,7 +112,8 @@ Single-purpose, independently callable technique units.
 
 See [skills/](skills/) for the full category tree and planned subcategories (engineering: git-collaboration · code-quality · testing · delivery; conversational: requirement · interview · brainstorm).
 
-Annotated `AGENTS.md` examples and original excerpts: [docs/agents-md/](docs/agents-md/README.md).
+Annotated `AGENTS.md` examples, original excerpts, and ready-to-use templates: [docs/agents-md/](docs/agents-md/README.md).
+Direct templates: [programming](docs/agents-md/programming/AGENTS.md) · [office](docs/agents-md/office/AGENTS.md).
 
 ## Repository Structure
 
@@ -134,7 +135,7 @@ vibe-coding-sops/
 │   ├── superpowers/
 │   │   ├── plans/       # Implementation plans
 │   │   └── specs/       # Design specs
-│   ├── agents-md/       # Annotated AGENTS.md examples
+│   ├── agents-md/       # AGENTS.md examples and ready-to-use templates
 │   └── 变更记录/         # Code change logs
 ├── scripts/             # Helper scripts
 │   └── generate-stats.sh
