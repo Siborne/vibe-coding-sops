@@ -7,6 +7,7 @@
 | 技能 | 说明 |
 |------|------|
 | [agent-prompt-engineering](agent-prompt-engineering/SKILL.md) | 为 AI Agent 应用编写提示词的 5 种工程化技巧 |
+| [expert-ai-rules](expert-ai-rules/SKILL.md) | 11 份公开 AI 规则的浓缩版，附通用办公模板与项目级规则生成步骤 |
 
 ## 收录标准
 

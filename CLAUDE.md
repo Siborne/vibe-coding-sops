@@ -70,6 +70,7 @@ LICENSE              # MIT
 | Skill | File | Core Capability |
 |-------|------|----------------|
 | Agent Prompt Engineering | `skills/atomic/agent-prompt-engineering/SKILL.md` | 5 techniques for writing production Agent prompts: CoT, structured templates, positive/negative examples, divide & conquer, data structure conversion |
+| Expert AI Rules | `skills/atomic/expert-ai-rules/SKILL.md` | Distilled collaboration rules from 11 public AI rule files, plus a copy-ready office template and project-rule generation workflow |
 
 ## Adding a New Rule
 

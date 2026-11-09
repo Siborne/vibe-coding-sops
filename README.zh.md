@@ -108,8 +108,11 @@ AI 辅助编程速度极快，但速度不等于质量。没有规则约束的 v
 | Skill | 说明 |
 |-------|------|
 | [Agent Prompt Engineering](skills/atomic/agent-prompt-engineering/SKILL.md) | 5 种生产级 Agent prompt 编写技巧 — 思维链、结构化模版、正反例、分而治之、数据结构转换 |
+| [Expert AI Rules](skills/atomic/expert-ai-rules/SKILL.md) | 11 份公开 AI 规则的浓缩版，附可直接复制的通用办公模板与项目级规则生成步骤 |
 
 完整的分类树与规划中的子类见 [skills/](skills/)（工程类：git-collaboration · code-quality · testing · delivery；对话类：requirement · interview · brainstorm）。
+
+`AGENTS.md` 案例与原文摘录见 [docs/agents-md/](docs/agents-md/README.md)。
 
 ## 仓库结构
 
@@ -131,6 +134,7 @@ vibe-coding-sops/
 │   ├── superpowers/
 │   │   ├── plans/       # 实现计划
 │   │   └── specs/       # 设计规格
+│   ├── agents-md/       # AGENTS.md 案例集
 │   └── 变更记录/         # 代码变更记录
 ├── scripts/             # 辅助脚本
 │   └── generate-stats.sh

@@ -108,8 +108,11 @@ Single-purpose, independently callable technique units.
 | Skill | Description |
 |-------|-------------|
 | [Agent Prompt Engineering](skills/atomic/agent-prompt-engineering/SKILL.md) | 5 engineering techniques for writing production Agent prompts — CoT, structured templates, examples, divide & conquer, data structure conversion |
+| [Expert AI Rules](skills/atomic/expert-ai-rules/SKILL.md) | Distilled collaboration rules from 11 public AI rule files, plus a copy-ready office template and project-rule generation workflow |
 
 See [skills/](skills/) for the full category tree and planned subcategories (engineering: git-collaboration · code-quality · testing · delivery; conversational: requirement · interview · brainstorm).
+
+Annotated `AGENTS.md` examples and original excerpts: [docs/agents-md/](docs/agents-md/README.md).
 
 ## Repository Structure
 
@@ -131,6 +134,7 @@ vibe-coding-sops/
 │   ├── superpowers/
 │   │   ├── plans/       # Implementation plans
 │   │   └── specs/       # Design specs
+│   ├── agents-md/       # Annotated AGENTS.md examples
 │   └── 变更记录/         # Code change logs
 ├── scripts/             # Helper scripts
 │   └── generate-stats.sh
